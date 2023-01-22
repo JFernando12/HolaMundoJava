@@ -6,6 +6,10 @@ public class UIMenu {
     static int selector;
     public static void showMenu() {
         do {
+            System.out.println("Seleccione que eres: ");
+            System.out.println("1.- Doctor");
+            System.out.println("2.- Patient");
+            System.out.println("0.- Exit");
             Scanner sc = new Scanner(System.in);
             selector = Integer.parseInt(sc.nextLine());
             switch (selector) {
@@ -13,7 +17,7 @@ public class UIMenu {
                     System.out.println("Estoy en doctor");
                     break;
                 case 2:
-                    System.out.println("Estoy en paciente");
+                    UIPatient.showPatientMenu();
                     break;
                 case 0:
                     System.out.println("Sali exitosamente");

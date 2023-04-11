@@ -3,20 +3,20 @@ package Models;
 import java.util.Date;
 
 public class Appointment {
-    private Date date;
+    private String day;
     private String time;
 
-    public Appointment(Date date, String time) {
-        this.date = date;
+    public Appointment(String day, String time) {
+        this.day = day;
         this.time = time;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDay() {
+        return day;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDay(String day) {
+        this.day = day;
     }
 
     public String getTime() {

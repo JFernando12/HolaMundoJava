@@ -10,28 +10,11 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class UIPatient {
-    private static final Doctor doctor1 = new Doctor("Fernando", "fernando@gmail.com");
-    private static final Doctor doctor2 = new Doctor("Jose", "jose@gmail.com");
-    private static final Doctor doctor3 = new Doctor("Luis", "luis@gmail.com");
     private static Patient patient;
 
-    private static final ArrayList<Doctor> doctors = new ArrayList<>(Arrays.asList(doctor1, doctor2, doctor3));
-
-    UIPatient(Patient patient) {
-        UIPatient.patient = patient;
-    }
-
-    private static void creatingAppointments() {
-        doctor1.createAppointment(new Date(), "1:00pm");
-        doctor1.createAppointment(new Date(), "2:00pm");
-        doctor2.createAppointment(new Date(), "3:00pm");
-        doctor2.createAppointment(new Date(), "4:00pm");
-        doctor3.createAppointment(new Date(), "5:00pm");
-        doctor3.createAppointment(new Date(), "6:00pm");
-    }
+    private static final ArrayList<Doctor> doctors = UIDoctor.doctors;
 
     public static void showDoctors() {
-        creatingAppointments();
         int selectDoctor;
         int doctorsSize = doctors.size();
         do {
@@ -45,7 +28,7 @@ public class UIPatient {
             selectDoctor = Integer.parseInt(sc.nextLine());
 
             if(selectDoctor > 0 && selectDoctor < doctorsSize + 1) {
-                showAppointments(selectDoctor - 1);
+                selectDoctor = showAppointments(selectDoctor - 1);
             } else if(selectDoctor == 0) {
                 System.out.println("Exit...");
             } else {
@@ -55,7 +38,7 @@ public class UIPatient {
         } while (selectDoctor != 0);
     }
 
-    public static void showAppointments(int index) {
+    public static int showAppointments(int index) {
         int selectorAppo;
         Doctor currentDoctor = doctors.get(index);
         int appointmentsSize = currentDoctor.appointments.size();
@@ -77,6 +60,7 @@ public class UIPatient {
                 System.out.println("Select a correct option.");
             }
         } while (selectorAppo != 0);
+        return 0;
     }
 
     public static void showMyAppointments(Patient patient) {
@@ -90,7 +74,8 @@ public class UIPatient {
         } while (selectorMyAppo != 0);
     }
 
-    public static void showPatientMenu() {
+    public static void showPatientMenu(Patient patient) {
+        UIPatient.patient = patient;
         int selector;
         do {
             System.out.println("Select an option");

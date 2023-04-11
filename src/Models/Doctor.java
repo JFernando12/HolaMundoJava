@@ -20,7 +20,7 @@ public class Doctor extends User{
 
     public void getAppointments() {
         for (int i = 0; i < appointments.size(); i++) {
-            System.out.println((i + 1) + " - " + appointments.get(i).getDate() + " " + appointments.get(i).getTime());
+            System.out.println((i + 1) + " - " + appointments.get(i).getDay() + " " + appointments.get(i).getTime());
         }
     }
 
@@ -28,7 +28,7 @@ public class Doctor extends User{
         return appointments.get(index);
     }
 
-    public void createAppointment(Date date, String time) {
-        appointments.add(new Appointment(date, time));
+    public void createAppointment(String day, String time) {
+        appointments.add(new Appointment(day, time));
     }
 }

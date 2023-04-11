@@ -9,7 +9,7 @@ public class UIMenu {
     static int selector;
     static ArrayList<Patient> patients = new ArrayList<>();
 
-    static void createPatients() {
+    public static void createPatients() {
         Patient patient1 = new Patient("Fernando", "fernando@gmail.com");
         Patient patient2 = new Patient("Luis", "luis@gmail.com");
         Patient patient3 = new Patient("Grecia", "grecia@gmail.com");
@@ -20,7 +20,6 @@ public class UIMenu {
     }
 
     public static void showMenu() {
-        createPatients();
         do {
             System.out.println("Seleccione que eres: ");
             System.out.println("1.- Doctor");
@@ -30,10 +29,10 @@ public class UIMenu {
             selector = Integer.parseInt(sc.nextLine());
             switch (selector) {
                 case 1:
-                    System.out.println("Estoy en doctor");
+                    UIDoctor.showDoctorMenu();
                     break;
                 case 2:
-                    new UIPatient(patients.get(0)).showPatientMenu();
+                    UIPatient.showPatientMenu(patients.get(0));
                     break;
                 case 0:
                     System.out.println("Sali exitosamente");

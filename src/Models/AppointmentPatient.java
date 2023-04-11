@@ -10,6 +10,6 @@ public class AppointmentPatient {
     }
 
     public void getAppointmentPatient() {
-        System.out.println(doctor.getName() + '-' + appointment.getDate() + '-' + appointment.getTime());
+        System.out.println(doctor.getName() + "- " + appointment.getDay() + "-" + appointment.getTime());
     }
 }
